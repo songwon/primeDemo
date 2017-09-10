@@ -12,7 +12,7 @@
 
 <h:body>
 
-	<p:tabView activeIndex="#{a01Page.str}">
+	<p:tabView activeIndex="#{a01Page.bag.activeTabIndex}">
 		<p:ajax event="tabChange" listener="#{A01Page.onTabChange}" />
 
 		<p:tab title="検索条件">
