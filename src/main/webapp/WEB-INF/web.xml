@@ -4,7 +4,7 @@
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 	  http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	 id="PrimeFaces" version="3.1">
+	 id="primeDemo" version="3.1">
 
   <display-name>PrimeFaces Sample</display-name>
 
@@ -21,8 +21,7 @@
 
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-
 
 </web-app>

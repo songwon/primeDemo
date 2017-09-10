@@ -22,35 +22,28 @@ repositories {
 	 maven { url "http://repository.primefaces.org" }
 }
 
-
-
 dependencies {
-compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: springBootVersion
-compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
-compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat'
 
+	//stpring boot
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: springBootVersion
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat'
+
+	//tomcat
 	compile group: "org.apache.tomcat.embed", name: "tomcat-embed-logging-juli", version: '8.+'
 	compile group: "org.apache.tomcat.embed", name: "tomcat-embed-jasper", version: '8.+'
+
+	//jsf
 	compile group: "com.sun.faces", name: "jsf-api", version: "2.+"
 	compile group: "com.sun.faces", name: "jsf-impl", version: "2.+"
 
+	//primefaces
     compile group: "org.primefaces", name: "primefaces", version: "6.1"
 	compile group: 'org.primefaces.themes', name: 'bootstrap', version: '1.0.10'
 
-
+	//database
 	runtime('com.h2database:h2')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-}
-
-configurations {
-    provided
-}
-dependencies {
-	provided group: 'javax.faces', name: 'javax.faces-api'
-}
-
-compileJava {
-    sourceSets.main.compileClasspath += configurations.provided
-    sourceSets.test.compileClasspath += configurations.provided
 }
 

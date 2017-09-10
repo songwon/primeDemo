@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pa="http://primefaces.org/barcelona"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Subsonic Airlines</title>
+</h:head>
+
+<h:body>
+
+	<p:tabView activeIndex="#{a01Page.str}">
+		<p:ajax event="tabChange" listener="#{A01Page.onTabChange}" />
+
+		<p:tab title="検索条件">
+			<p:toolbar>
+				<f:facet name="left">
+					<p:button value="検索"
+						icon="" />
+				</f:facet>
+			</p:toolbar>
+			<p:outputPanel style="padding:5px;">
+				<p:outputLabel value="番号" />
+				<p:inputNumber />
+			</p:outputPanel>
+
+			<p:outputPanel style="padding:5px;">
+				<p:outputLabel value="文字" />
+				<p:inputNumber />
+			</p:outputPanel>
+
+			<p:outputPanel style="padding:5px;">
+				<p:outputLabel value="金額" />
+				<p:inputNumber />
+			</p:outputPanel>
+
+			<p:outputPanel style="padding:5px;">
+				<p:outputLabel value="日付" />
+				<p:calendar mask="true" pattern="yyyy/mm/dd" />
+			</p:outputPanel>
+
+		</p:tab>
+		<p:tab title="一覧">
+			<p:dataTable value="a">
+				<p:column headerText="番号">
+					<h:outputText value="1001" />
+				</p:column>
+				<p:column headerText="文字">
+					<h:outputText value="Hello World" />
+				</p:column>
+				<p:column headerText="金額">
+					<h:outputText value="999,999"/>
+				</p:column>
+				<p:column headerText="日付">
+					<h:outputText value="2017/07/07" />
+				</p:column>
+			</p:dataTable>
+		</p:tab>
+		<p:tab title="詳細" disabled="true">
+
+		</p:tab>
+	</p:tabView>
+</h:body>
+</html>
