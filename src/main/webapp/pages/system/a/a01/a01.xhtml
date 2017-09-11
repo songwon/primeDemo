@@ -11,76 +11,57 @@
 </h:head>
 
 <h:body>
-	<h:form id="form">
-		<p:tabView id="tabView" activeIndex="#{a01Page.bag.activeTabIndex}">
-			<p:ajax event="tabChange" listener="#{a01Page.onTabChange}"
-				update="tabView" />
 
-			<p:tab title="検索条件">
-				<p:toolbar>
-					<f:facet name="left">
-						<p:commandButton value="検索" action="#{a01Page.doSearch}"
-							ajax="false" />
-					</f:facet>
-				</p:toolbar>
-				<p:outputPanel style="padding:5px;">
-					<p:outputLabel value="番号" style="display:inline-block;width:100px;" />
-					<p:inputNumber />
-				</p:outputPanel>
+	<p:tabView activeIndex="#{a01Page.str}">
+		<p:ajax event="tabChange" listener="#{A01Page.onTabChange}" />
 
-				<p:outputPanel style="padding:5px;">
-					<p:outputLabel value="文字" style="display:inline-block;width:100px;" />
-					<p:inputText />
-				</p:outputPanel>
+		<p:tab title="検索条件">
+			<p:toolbar>
+				<f:facet name="left">
+					<p:button value="検索"
+						icon="" />
+				</f:facet>
+			</p:toolbar>
+			<p:outputPanel style="padding:5px;">
+				<p:outputLabel value="番号" />
+				<p:inputNumber />
+			</p:outputPanel>
 
-				<p:outputPanel style="padding:5px;">
-					<p:outputLabel value="金額" style="display:inline-block;width:100px;" />
-					<p:inputNumber />
-				</p:outputPanel>
+			<p:outputPanel style="padding:5px;">
+				<p:outputLabel value="文字" />
+				<p:inputNumber />
+			</p:outputPanel>
 
-				<p:outputPanel style="padding:5px;">
-					<p:outputLabel value="日付" style="display:inline-block;width:100px;" />
-					<p:calendar mask="true" pattern="yyyy/mm/dd" />
-				</p:outputPanel>
+			<p:outputPanel style="padding:5px;">
+				<p:outputLabel value="金額" />
+				<p:inputNumber />
+			</p:outputPanel>
 
-				<p:outputPanel style="padding:5px;">
-					<p:outputLabel value="区分" style="display:inline-block;width:100px;" />
-					<p:inputSwitch />
-				</p:outputPanel>
+			<p:outputPanel style="padding:5px;">
+				<p:outputLabel value="日付" />
+				<p:calendar mask="true" pattern="yyyy/mm/dd" />
+			</p:outputPanel>
 
-			</p:tab>
-			<p:tab title="一覧">
-				<p:dataTable var="data" value="#{a01Page.bag.dataModel}"
-					rowKey="#{data.id}" paginator="true" paginatorPosition="top"
-					rows="10" rowsPerPageTemplate="5,10,15,30,50">
+		</p:tab>
+		<p:tab title="一覧">
+			<p:dataTable value="a">
+				<p:column headerText="番号">
+					<h:outputText value="1001" />
+				</p:column>
+				<p:column headerText="文字">
+					<h:outputText value="Hello World" />
+				</p:column>
+				<p:column headerText="金額">
+					<h:outputText value="999,999"/>
+				</p:column>
+				<p:column headerText="日付">
+					<h:outputText value="2017/07/07" />
+				</p:column>
+			</p:dataTable>
+		</p:tab>
+		<p:tab title="詳細" disabled="true">
 
-					<p:column selectionMode="single" style="width:16px; text-aligen:center"/>
-
-					<p:column headerText="番号">
-						<h:outputText value="#{data.id}" />
-					</p:column>
-					<p:column headerText="名前">
-						<h:outputText value="#{data.name}" />
-					</p:column>
-					<p:column headerText="価格">
-						<h:outputText value="#{data.price}" />
-					</p:column>
-					<p:column headerText="日付">
-						<h:outputText value="#{data.date}" />
-					</p:column>
-					<p:column headerText="区分">
-						<p:selectBooleanCheckbox value="true" disabled="true" />
-					</p:column>
-				</p:dataTable>
-
-				<p:commandButton value="詳細" action="#{a01Page.doDetail}"
-					ajax="false" />
-			</p:tab>
-			<p:tab id="detailTab" title="詳細" closable="true"
-				rendered="#{a01Page.bag.visableDetailTab}">
-
-			</p:tab>
-		</p:tabView>
-	</h:form>
+		</p:tab>
+	</p:tabView>
 </h:body>
 </html>
